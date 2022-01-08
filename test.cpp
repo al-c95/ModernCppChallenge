@@ -2,6 +2,7 @@
 #include <boost/test/included/unit_test.hpp>
 #include "StringsAndRegex/license_plates.h"
 #include "Cryptography/validating_user_credentials.h"
+#include "Cryptography/caesar_cipher.h"
 
 #include <algorithm>
 
@@ -80,4 +81,17 @@ BOOST_AUTO_TEST_CASE(login_user_not_exists)
 
     // assert
     BOOST_TEST(actual_result==false);
+}
+
+BOOST_AUTO_TEST_CASE(caesar_cipher_encrypt)
+{
+    // arrange
+    std::string input = "AbCDEFZ";
+    std::string expected_output = "CbEFGHB";
+
+    // act
+    std::string actual_output = caesar_cipher::encrypt(input, 2);
+
+    // assert
+    BOOST_TEST(actual_output==expected_output);
 }
