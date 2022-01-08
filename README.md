@@ -10,3 +10,4 @@ cmake --build .
 
 ## Attributions
 - Boost
+- PicoSHA2 by okdshin

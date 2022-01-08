@@ -1,6 +1,7 @@
 #define BOOST_TEST_MODULE license_plates
 #include <boost/test/included/unit_test.hpp>
 #include "StringsAndRegex/license_plates.h"
+#include "Cryptography/validating_user_credentials.h"
 
 #include <algorithm>
 
@@ -40,4 +41,43 @@ BOOST_AUTO_TEST_CASE(get_license_plate_numbers)
     BOOST_TEST((std::find(results.begin(), results.end(), "ABC-DE 123") != results.end())==true);
     BOOST_TEST((std::find(results.begin(), results.end(), "ABC-DE 1234") != results.end())==true);
     BOOST_TEST((std::find(results.begin(), results.end(), "ABC-DE 456") != results.end())==true);
+}
+
+BOOST_AUTO_TEST_CASE(login_success)
+{
+    // arrange
+    std::string user_name = "John Smith";
+    std::string password = "secret";
+
+    // act
+    bool actual_result = login_system::login(user_name, password);
+
+    // assert
+    BOOST_TEST(actual_result==true);
+}
+
+BOOST_AUTO_TEST_CASE(login_fail)
+{
+    // arrange
+    std::string user_name = "John Smith";
+    std::string password = "test";
+
+    // act
+    bool actual_result = login_system::login(user_name, password);
+
+    // assert
+    BOOST_TEST(actual_result==false);
+}
+
+BOOST_AUTO_TEST_CASE(login_user_not_exists)
+{
+    // arrange
+    std::string user_name = "Korky Buchek";
+    std::string password = "secret";
+
+    // act
+    bool actual_result = login_system::login(user_name, password);
+
+    // assert
+    BOOST_TEST(actual_result==false);
 }
