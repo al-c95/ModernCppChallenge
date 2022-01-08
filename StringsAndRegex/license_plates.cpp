@@ -3,7 +3,7 @@
 #include <regex>
 #include <vector>
 
-namespace LicensePlates
+namespace license_plates
 {
     namespace // anonymous namespace
     {
@@ -11,11 +11,27 @@ namespace LicensePlates
         const std::regex LICENSE_PLATE_PATTERN_ZERO_WIDTH("^([A-Z]{3}-[A-Z]{2} \\d{3,4})$");
     }
 
+    /**
+     * @brief Checks if a string is a valid license plate number.
+     * 
+     * @param license_plate_number given license plate number
+     * @return true if license plate number is valid
+     * @return false if license plate number is invalid
+     */
     bool validate_license_plate_number(std::string license_plate_number)
     {
         return std::regex_match(license_plate_number, LICENSE_PLATE_PATTERN_ZERO_WIDTH);
     }
 
+    /**
+     * @brief Extracts all valid license plate numbers from a string.
+     * 
+     * @param text given string
+     * @return std::vector<std::string> valid license plate numbers
+     * /
+     * 
+     * /
+     */
     std::vector<std::string> get_license_plate_numbers(const std::string text)
     {
         std::vector<std::string> license_plate_numbers;

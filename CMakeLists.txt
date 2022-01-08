@@ -11,4 +11,4 @@ set(BOOST_DIR "" CACHE FILEPATH "Path to boost")
 include_directories(${BOOST_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/StringsAndRegex)
 
-add_executable(test test.cpp ${PROJECT_SOURCE_DIR}/StringsAndRegex/LicensePlates.cpp)
+add_executable(test test.cpp ${PROJECT_SOURCE_DIR}/StringsAndRegex/license_plates.cpp)
