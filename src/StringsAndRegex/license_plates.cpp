@@ -16,7 +16,7 @@ namespace license_plates
     }
 
     /**
-     * @brief Checks if a string is a valid license plate number.
+     * @brief Checks if a string is a valid license plate number. Must be in the format LLL-LL DDDD or LLL-LL DDD, where L is an uppercase letter and D a digit 0-9.
      * 
      * @param license_plate_number given license plate number
      * @return true if license plate number is valid
@@ -45,5 +45,5 @@ namespace license_plates
         }
 
         return license_plate_numbers;
-    }
+    }//get_license_plate_numbers
 }

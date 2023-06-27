@@ -1,13 +1,13 @@
 # ModernCppChallenge
 Some solutions to problems from the Modern C++ Challenge.
 
+## Compiling and running tests
 ```
-mkdir build
-cd build
-cmake -D BOOST_DIR=/path/to/boost/dir ..
-cmake --build .
+cmake -S . -B build
+cmake --build build
+cd build && ctest
 ```
 
 ## Attributions
-- Boost
+- GoogleTest by Google
 - PicoSHA2 by okdshin
