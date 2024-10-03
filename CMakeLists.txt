@@ -24,6 +24,8 @@ add_executable(
   test/StringsAndRegex/license_plates_test.cpp
   src/StringsAndRegex/article_title_capitaliser.cpp
   test/StringsAndRegex/article_title_capitaliser_test.cpp
+  src/StringsAndRegex/joining_strings.cpp
+  test/StringsAndRegex/joining_strings_test.cpp
   src/Cryptography/caesar_cipher.cpp
   test/Cryptography/caesar_cipher_test.cpp
   src/Cryptography/validating_user_credentials.cpp
