@@ -1,5 +1,5 @@
 # ModernCppChallenge
-Some solutions to problems from the Modern C++ Challenge.
+Some solutions to problems from the Modern C++ Challenge. Requires cmake.
 
 ## Compiling and running tests
 ```

@@ -15,26 +15,33 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(${PROJECT_SOURCE_DIR}/src/StringsAndRegex)
 include_directories(${PROJECT_SOURCE_DIR}/test/StringsAndRegex)
+include_directories(${PROJECT_SOURCE_DIR}/src/Cryptography)
+include_directories(${PROJECT_SOURCE_DIR}/test/Cryptography)
 
 enable_testing()
 
-add_executable(
-  StringsAndRegex_Test
+# Create an executable for StringsAndRegex
+add_executable(StringsAndRegex_Test
   src/StringsAndRegex/license_plates.cpp
   test/StringsAndRegex/license_plates_test.cpp
   src/StringsAndRegex/article_title_capitaliser.cpp
   test/StringsAndRegex/article_title_capitaliser_test.cpp
   src/StringsAndRegex/joining_strings.cpp
   test/StringsAndRegex/joining_strings_test.cpp
+)
+
+target_link_libraries(StringsAndRegex_Test GTest::gtest_main)
+include(GoogleTest)
+gtest_discover_tests(StringsAndRegex_Test)
+
+# Create an executable for Cryptography
+add_executable(Cryptography_Test
   src/Cryptography/caesar_cipher.cpp
   test/Cryptography/caesar_cipher_test.cpp
   src/Cryptography/validating_user_credentials.cpp
   test/Cryptography/validating_user_credentials_tests.cpp
 )
-target_link_libraries(
-  StringsAndRegex_Test
-  GTest::gtest_main
-)
 
+target_link_libraries(Cryptography_Test GTest::gtest_main)
 include(GoogleTest)
-gtest_discover_tests(StringsAndRegex_Test)
+gtest_discover_tests(Cryptography_Test)
