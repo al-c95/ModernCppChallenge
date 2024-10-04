@@ -4,6 +4,8 @@ project(modern_Cpp_challenge)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(Boost 1.82.0)
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -13,6 +15,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+include_directories(${Boost_INCLUDE_DIRS})  # Include Boost headers
 include_directories(${PROJECT_SOURCE_DIR}/src/StringsAndRegex)
 include_directories(${PROJECT_SOURCE_DIR}/test/StringsAndRegex)
 include_directories(${PROJECT_SOURCE_DIR}/src/Cryptography)
@@ -30,7 +33,7 @@ add_executable(StringsAndRegex_Test
   test/StringsAndRegex/joining_strings_test.cpp
 )
 
-target_link_libraries(StringsAndRegex_Test GTest::gtest_main)
+target_link_libraries(StringsAndRegex_Test GTest::gtest_main ${Boost_LIBRARIES})
 include(GoogleTest)
 gtest_discover_tests(StringsAndRegex_Test)
 
@@ -42,6 +45,6 @@ add_executable(Cryptography_Test
   test/Cryptography/validating_user_credentials_tests.cpp
 )
 
-target_link_libraries(Cryptography_Test GTest::gtest_main)
+target_link_libraries(Cryptography_Test GTest::gtest_main ${Boost_LIBRARIES})
 include(GoogleTest)
 gtest_discover_tests(Cryptography_Test)
